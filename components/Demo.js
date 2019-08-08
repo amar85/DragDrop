@@ -19,17 +19,16 @@ export default class Demo extends React.Component {
             }, {
                 temperature: '80 F',
                 city: 'Long Beach'
-            }
-            , {
+            }, {
                 temperature: '82 F',
                 city: 'San Diego'
             }
         ];
-        for (var key in data) {
-            if (data.hasOwnProperty(key)) {               
-                rows.push(<Block key={key} city={JSON.stringify(data[key].city).replace(/"/g, "")} temp={JSON.stringify(data[key].temperature).replace(/"/g, "")} />);
-            }
-        }
+
+        data.forEach(function(key){
+            rows.push (<Block key={key.city} city={key.city} temp={key.temperature} />);
+        })
+
         return (
             <div>
                 <div>
